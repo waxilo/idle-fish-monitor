@@ -1,7 +1,7 @@
 package services
 
 import (
-	"idle-fish-monitor/handlers"
+	"idle-fish-monitor/services/webserver"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -41,6 +41,6 @@ func (w *WebServer) Stop() error {
 
 // setupRoutes 设置路由
 func (w *WebServer) setupRoutes() {
-	w.engine.GET("/ping", handlers.PingHandler)
-	w.engine.GET("/search", handlers.SearchHandler)
+	w.engine.GET("/ping", webserver.PingHandler)
+	w.engine.GET("/search", webserver.SearchHandler)
 }

@@ -1,12 +1,11 @@
 package main
 
 import (
+	"idle-fish-monitor/bootstrap"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
-
-	"test/bootstrap"
 )
 
 func main() {

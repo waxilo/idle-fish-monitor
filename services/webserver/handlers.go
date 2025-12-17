@@ -1,4 +1,4 @@
-package handlers
+package webserver
 
 import (
 	"github.com/gin-gonic/gin"
