@@ -1,8 +1,8 @@
 package bootstrap
 
 import (
+	"idle-fish-monitor/services"
 	"log"
-	"test/services"
 )
 
 // Bootstrap 应用启动引导

@@ -1,4 +1,4 @@
-module test
+module idle-fish-monitor
 
 go 1.24.0
 

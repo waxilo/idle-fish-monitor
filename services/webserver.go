@@ -1,8 +1,8 @@
 package services
 
 import (
+	"idle-fish-monitor/handlers"
 	"log"
-	"test/handlers"
 
 	"github.com/gin-gonic/gin"
 )
