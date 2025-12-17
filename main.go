@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// 创建bootstrap实例
-	app := bootstrap.NewBootstrap()
+	app := bootstrap.NewBootstrap(8080)
 
 	// 初始化服务
 	app.Initialize()
