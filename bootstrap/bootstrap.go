@@ -1,0 +1,48 @@
+package bootstrap
+
+import (
+	"log"
+	"test/services"
+)
+
+// Bootstrap 应用启动引导
+type Bootstrap struct {
+	manager *services.Manager
+}
+
+// NewBootstrap 创建新的Bootstrap实例
+func NewBootstrap() *Bootstrap {
+	return &Bootstrap{
+		manager: services.NewManager(),
+	}
+}
+
+// Initialize 初始化所有服务
+func (b *Bootstrap) Initialize() {
+	// 创建Web服务器
+	webServer := services.NewWebServer(":8080")
+	b.manager.Register(webServer)
+
+	// 创建Job服务器
+	jobServer := services.NewJobServer()
+	b.manager.Register(jobServer)
+
+	log.Println("All services initialized")
+}
+
+// Start 启动所有服务
+func (b *Bootstrap) Start() error {
+	log.Println("Starting all services...")
+	return b.manager.StartAll()
+}
+
+// Stop 停止所有服务
+func (b *Bootstrap) Stop() error {
+	log.Println("Stopping all services...")
+	return b.manager.StopAll()
+}
+
+// GetManager 获取服务管理器
+func (b *Bootstrap) GetManager() *services.Manager {
+	return b.manager
+}

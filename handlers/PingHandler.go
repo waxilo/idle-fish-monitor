@@ -5,8 +5,13 @@ import (
 )
 
 // PingHandler 处理 /ping 请求
-func PingHandler(response *gin.Context) {
-	response.JSON(200, gin.H{
+func PingHandler(context *gin.Context) {
+	context.JSON(200, gin.H{
 		"message": "pong",
 	})
+}
+
+// SearchHandler 处理商品查询
+func SearchHandler(context *gin.Context) {
+
 }
