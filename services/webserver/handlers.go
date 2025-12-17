@@ -13,5 +13,9 @@ func PingHandler(context *gin.Context) {
 
 // SearchHandler 处理商品查询
 func SearchHandler(context *gin.Context) {
+	// todo 获取参数
 
+	// todo 调用接口
+
+	// todo 返回结果
 }
