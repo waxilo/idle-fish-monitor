@@ -22,9 +22,9 @@ func NewBootstrap(port int) *Bootstrap {
 
 // Initialize 初始化所有服务
 func (b *Bootstrap) Initialize() {
-	// 创建Web服务器
-	webServer := services.NewWebServer(":" + strconv.Itoa(b.port))
-	b.manager.Register(webServer)
+
+	b.manager.Register(services.NewWebServer(":" + strconv.Itoa(b.port)))
+	b.manager.Register(services.NewInitJobServer())
 
 	log.Println("All services initialized")
 }

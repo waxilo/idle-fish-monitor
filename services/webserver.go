@@ -2,7 +2,6 @@ package services
 
 import (
 	"idle-fish-monitor/services/webserver"
-	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -29,13 +28,11 @@ func (w *WebServer) Name() string {
 // Start 启动Web服务器
 func (w *WebServer) Start() error {
 	w.setupRoutes()
-	log.Printf("WebServer starting on %s", w.addr)
 	return w.engine.Run(w.addr)
 }
 
 // Stop 停止Web服务器
 func (w *WebServer) Stop() error {
-	log.Println("WebServer stopped")
 	return nil
 }
 

@@ -32,12 +32,12 @@ func (m *Manager) StartAll() error {
 	defer m.mu.RUnlock()
 
 	for _, service := range m.services {
-		log.Printf("Starting service: %s", service.Name())
-		if err := service.Start(); err != nil {
-			log.Printf("Failed to start service %s: %v", service.Name(), err)
-			return err
-		}
-		log.Printf("Service started successfully: %s", service.Name())
+		go func() {
+			err := service.Start()
+			if err != nil {
+				return
+			}
+		}()
 	}
 	return nil
 }
@@ -50,7 +50,6 @@ func (m *Manager) StopAll() error {
 	// 逆序停止服务
 	for i := len(m.services) - 1; i >= 0; i-- {
 		service := m.services[i]
-		log.Printf("Stopping service: %s", service.Name())
 		if err := service.Stop(); err != nil {
 			log.Printf("Failed to stop service %s: %v", service.Name(), err)
 			return err

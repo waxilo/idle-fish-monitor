@@ -22,6 +22,9 @@ func main() {
 	if err := app.Start(); err != nil {
 		log.Fatal("Failed to start services:", err)
 	}
+
+	// 保持程序运行，等待关闭信号
+	select {}
 }
 
 // handleGracefulShutdown 处理优雅关闭
