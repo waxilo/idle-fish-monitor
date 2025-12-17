@@ -26,10 +26,6 @@ func (b *Bootstrap) Initialize() {
 	webServer := services.NewWebServer(":" + strconv.Itoa(b.port))
 	b.manager.Register(webServer)
 
-	// 创建Job服务器
-	jobServer := services.NewJobServer()
-	b.manager.Register(jobServer)
-
 	log.Println("All services initialized")
 }
 
